@@ -1,16 +1,7 @@
-import { Button, Center, Stack } from '@mantine/core'
+import { Button, Center, Grid, Group, Stack } from '@mantine/core'
 
 const Login = ({ loginHandler }) => {
-  return (
-    <Center sx={{ minHeight: '100vh' }}>
-      <Stack>
-        <Center>
-          <h1>Login</h1>
-        </Center>
-        <Button onClick={loginHandler}>Login With GitHub</Button>
-      </Stack>
-    </Center>
-  )
+  return <Group align="center" justify="center"></Group>
 }
 
 export default Login
