@@ -25,9 +25,14 @@ function Home() {
   }, [])
 
   const loginHandler = async () => {
-    const { user, session, error } = await supabase.auth.signIn({
-      provider: 'github',
-    })
+    const { user, session, error } = await supabase.auth.signIn(
+      {
+        provider: 'github',
+      },
+      {
+        scopes: 'repo gist notifications user',
+      }
+    )
   }
 
   return (
