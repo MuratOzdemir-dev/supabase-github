@@ -8,19 +8,21 @@ function Home() {
 
   const getSession = async () => {
     setSession(supabase.auth.session())
+    console.log('session', session)
   }
 
   const getUser = async () => {
     const user = await supabase.auth.user()
     setUser(user)
+    console.log('user', user)
   }
 
-  // useEffect(() => {
-  //   getSession()
-  //   supabase.auth.onAuthStateChange((_event, session) => {
-  //     setSession(session)
-  //   })
-  // }, [])
+  useEffect(() => {
+    getSession()
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
 
   const loginHandler = async () => {
     const { user, session, error } = await supabase.auth.signIn({
@@ -36,9 +38,9 @@ function Home() {
         <Button onClick={loginHandler}>Login With GitHub</Button>
         <Space h={50} />
         <Button onClick={getSession}>Get Session Details</Button>
-        {session && <p>{session}</p>}
+        {/* {session && <p>{session}</p>} */}
         <Button onClick={getUser}>Get User Details</Button>
-        {user && <p>{user}</p>}
+        {/* {user && <p>{user}</p>} */}
       </Group>
     </Center>
   )
