@@ -13,8 +13,14 @@ function Home() {
     })
   }, [])
 
-  console.log(session)
-  return <Login />
+  const loginHandler = async () => {
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'github',
+    })
+    console.log(user, session, error)
+  }
+
+  return <Login loginHandler={loginHandler} />
 }
 
 export default Home

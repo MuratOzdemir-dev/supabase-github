@@ -1,12 +1,15 @@
-const Login = () => {
+import { Button, Center, Stack } from '@mantine/core'
+
+const Login = ({ loginHandler }) => {
   return (
-    <div className="login">
-      <h1>Login</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
-        quaerat.
-      </p>
-    </div>
+    <Center sx={{ minHeight: '100vh' }}>
+      <Stack>
+        <Center>
+          <h1>Login</h1>
+        </Center>
+        <Button onClick={loginHandler}>Login With GitHub</Button>
+      </Stack>
+    </Center>
   )
 }
 
