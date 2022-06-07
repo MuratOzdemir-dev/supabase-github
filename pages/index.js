@@ -15,12 +15,12 @@ function Home() {
     setUser(user)
   }
 
-  useEffect(() => {
-    getSession()
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-  }, [])
+  // useEffect(() => {
+  //   getSession()
+  //   supabase.auth.onAuthStateChange((_event, session) => {
+  //     setSession(session)
+  //   })
+  // }, [])
 
   const loginHandler = async () => {
     const { user, session, error } = await supabase.auth.signIn({
